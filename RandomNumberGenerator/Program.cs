@@ -15,7 +15,7 @@ namespace RandomNumberGenerator
 
             if (guess == actualNumber)
             {
-                Console.WriteLine("YOU WIN!");
+                Console.WriteLine("YOU WIN!!!");
             }
             if (guess > actualNumber)
             {
