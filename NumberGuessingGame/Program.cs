@@ -31,37 +31,35 @@ namespace NumberGuessingGame
 
                     if (guess == actualNumber)
                     {
-                        Console.WriteLine("YOU WIN!!!");
+                        Console.WriteLine("YOU WIN!!! " +actualNumber);
                     }
                     if (guess > actualNumber)
                     {
-                        Console.WriteLine("Your guess is too high, the actual number is: " + actualNumber);
+                        Console.WriteLine(guess + " Your guess is too high ");
                     }
                     if (guess < actualNumber)
                     {
-                        Console.WriteLine("Your guess is too low, the actual number is: " + actualNumber);
+                        Console.WriteLine(guess + " Your guess is too low, the actual number is: ");
                     }
                 }
 
-                    Console.WriteLine("Would you like to play again? 'Y' for Yes and 'N' for No");
-                    answer = Console.ReadLine();
+                Console.WriteLine("Would you like to play again? 'Y' for Yes and 'N' for No");
+                answer = Console.ReadLine();
 
-                    if (answer == "Y")
-                    {
-                        playAgain = true;
-                    }
-                    else
-                    {
-                        playAgain = false;
-                    }
-
-
+                if (answer == "Y")
+                {
+                    playAgain = true;
                 }
-                Console.WriteLine("Thanks for playing");
-                Console.ReadKey();
+                else
+                {
+                    playAgain = false;
+                }
 
 
             }
+            Console.WriteLine("Thanks for playing");
+            Console.ReadKey();
 
         }
     }
+}
