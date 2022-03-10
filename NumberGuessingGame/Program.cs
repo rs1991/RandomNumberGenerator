@@ -12,6 +12,8 @@ namespace NumberGuessingGame
 
             Random num = new Random();
             int guess;
+            int noGuesses;
+            int limit;
             int actualNumber = num.Next(1, 100);
             bool playAgain = true;
             string answer;
@@ -19,28 +21,38 @@ namespace NumberGuessingGame
             while (playAgain)
             {
                 guess = 0;
+                limit = 3;
+                noGuesses = 0;
                 answer = "";
-                actualNumber = num.Next(1, 100);
-
+                actualNumber = num.Next(1, 100 + 1);
 
                 while (guess != actualNumber)
                 {
+
                     Console.WriteLine("Guess a number from 1 to 100: ");
                     guess = Convert.ToInt32(Console.ReadLine());
-
+                    noGuesses++;
 
                     if (guess == actualNumber)
                     {
-                        Console.WriteLine("YOU WIN!!! " +actualNumber);
+                        Console.WriteLine("YOU WIN!!! " + actualNumber);
                     }
                     if (guess > actualNumber)
                     {
-                        Console.WriteLine(guess + " Your guess is too high ");
+                        Console.WriteLine(guess + " Your guess is too high");
+
                     }
                     if (guess < actualNumber)
                     {
-                        Console.WriteLine(guess + " Your guess is too low, the actual number is: ");
+                        Console.WriteLine(guess + " Your guess is too low");
                     }
+                    if (noGuesses == limit)
+                    {
+                        Console.WriteLine("-----------------------------------------------");
+                        Console.WriteLine("You lose, the correct number is " + actualNumber);
+                        break;
+                    }
+
                 }
 
                 Console.WriteLine("Would you like to play again? 'Y' for Yes and 'N' for No");
@@ -54,7 +66,6 @@ namespace NumberGuessingGame
                 {
                     playAgain = false;
                 }
-
 
             }
             Console.WriteLine("Thanks for playing");
