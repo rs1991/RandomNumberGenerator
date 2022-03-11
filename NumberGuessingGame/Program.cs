@@ -11,6 +11,7 @@ namespace NumberGuessingGame
             Console.WriteLine("------------------------------------");
 
             Random num = new Random();
+
             int guess;
             int noGuesses;
             int limit;
@@ -18,8 +19,10 @@ namespace NumberGuessingGame
             bool playAgain = true;
             string answer;
 
+
             while (playAgain)
             {
+
                 guess = 0;
                 limit = 3;
                 noGuesses = 0;
@@ -32,20 +35,28 @@ namespace NumberGuessingGame
                     Console.WriteLine("Guess a number from 1 to 100: ");
                     guess = Convert.ToInt32(Console.ReadLine());
                     noGuesses++;
-
-                    if (guess == actualNumber)
-                    {
-                        Console.WriteLine("YOU WIN!!! " + actualNumber);
-                    }
+                    
                     if (guess > actualNumber)
                     {
                         Console.WriteLine(guess + " Your guess is too high");
-
                     }
+
                     if (guess < actualNumber)
                     {
-                        Console.WriteLine(guess + " Your guess is too low");
+                        Console.WriteLine(guess + " Your guess is too low ");
+
                     }
+
+                    if (Math.Abs(Convert.ToInt32(guess) - actualNumber) <= 5)
+                        Console.WriteLine("You are not far off!");
+                    else if (Math.Abs(Convert.ToInt32(guess) - actualNumber) <= 5)
+                        Console.WriteLine("You are not far off!");
+
+                    if (guess == actualNumber)
+                    {
+                        Console.WriteLine(" YOU WIN!!! " + actualNumber);
+                    }
+
                     if (noGuesses == limit)
                     {
                         Console.WriteLine("-----------------------------------------------");
