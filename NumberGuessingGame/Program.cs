@@ -35,7 +35,7 @@ namespace NumberGuessingGame
                     Console.WriteLine("Guess a number from 1 to 100: ");
                     guess = Convert.ToInt32(Console.ReadLine());
                     noGuesses++;
-                    
+
                     if (guess > actualNumber)
                     {
                         Console.WriteLine(guess + " Your guess is too high");
@@ -46,18 +46,19 @@ namespace NumberGuessingGame
                         Console.WriteLine(guess + " Your guess is too low ");
 
                     }
+                    int dif = guess - actualNumber;
+                    int difAbs = Math.Abs(dif);
 
-                    if (Math.Abs(Convert.ToInt32(guess) - actualNumber) <= 5)
-                        Console.WriteLine("You are not far off!");
-                    else if (Math.Abs(Convert.ToInt32(guess) - actualNumber) <= 5)
-                        Console.WriteLine("You are not far off!");
+                    if (difAbs <= 5)
+                        Console.WriteLine("You are close!");
+
 
                     if (guess == actualNumber)
                     {
                         Console.WriteLine(" YOU WIN!!! " + actualNumber);
                     }
 
-                    if (noGuesses == limit)
+                    if (noGuesses >= limit)
                     {
                         Console.WriteLine("-----------------------------------------------");
                         Console.WriteLine("You lose, the correct number is " + actualNumber);
@@ -67,7 +68,7 @@ namespace NumberGuessingGame
                 }
 
                 Console.WriteLine("Would you like to play again? 'Y' for Yes and 'N' for No");
-                answer = Console.ReadLine();
+                answer = Console.ReadLine().ToUpper();
 
                 if (answer == "Y")
                 {
